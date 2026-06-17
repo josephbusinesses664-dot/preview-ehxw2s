@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoffman Alterations and Embroidery</title>
+    <style>
+        /* Variables & Global Styles */
+        :root {
+            --burgundy: #6b1f3a;
+            --gold: #c9a14a;
+            --cream: #faf6f0;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background-color: var(--cream);
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: var(--burgundy);
+        }
+
+        section {
+            padding: 60px 4% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* === HEADER & NAVIGATION STYLES === */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(250, 246, 240, 0.98); /* Cream with slight transparency */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 4%;
+        }
+
+        .nav-brand {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.8em;
+            color: var(--burgundy);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--burgundy);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+
+        /* === HERO SECTION STYLES === */
+        #hero {
+            background-color: var(--burgundy);
+            text-align: center;
+            padding: 100px 4%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #hero h1 {
+            color: var(--cream);
+            font-size: 3.5em;
+            margin-bottom: 0.1em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #hero p {
+            color: var(--cream);
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .call-button {
+            background-color: var(--gold);
+            color: var(--burgundy);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 1.3em;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .call-button:hover {
+            background-color: #d8c17a; /* Slightly lighter gold */
+            transform: translateY(-2px);
+        }
+
+
+        /* === SERVICES SECTION STYLES === */
+        #services h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Default for desktop/tablet */
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--cream);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 5px solid var(--gold); /* Gold top border */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            color: var(--burgundy);
+            font-size: 1.4em;
+            margin-top: 0;
+        }
+
+
+        /* === ABOUT SECTION STYLES === */
+        #about {
+            text-align: center;
+            background-color: #fff; /* Slight contrast for separation */
+            padding: 60px 4%;
+            border-radius: 12px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        #about p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+
+        /* === CONTACT SECTION STYLES === */
+        #contact h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-info p, .address-block, .phone-number-display {
+            font-size: 1.3em;
+            color: var(--burgundy);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Phone link styling */
+        .contact-info a[href^="tel:"] {
+            font-size: 1.8em;
+            color: var(--burgundy);
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border: 2px solid var(--gold);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-info a[href^="tel:"]:hover {
+            background-color: rgba(107, 31, 58, 0.05); /* Light burgundy hover */
+        }
+
+        /* Hours Table Styling */
+        .hours-table {
+            width: 60%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .hours-table th, .hours-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .hours-table th {
+            background-color: var(--burgundy);
+            color: var(--cream);
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        .hours-table tr:nth-child(even) {
+            background-color: #f9f6f2;
+        }
+
+
+        /* === FOOTER STYLES === */
+        footer {
+            background-color: var(--burgundy);
+            color: var(--cream);
+            text-align: center;
+            padding: 20px 20px;
+            font-size: 1.1em;
+            width: 100%;
+        }
+
+        /* =================================== */
+        /* MEDIA QUERIES (Mobile Responsiveness) */
+        /* =================================== */
+
+        @media (max-width: 768px) {
+            /* Adjust spacing and fonts for smaller screens */
+            section {
+                padding: 40px 20px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links a {
+                margin: 10px 15px;
+                display: block; /* Stack links vertically */
+            }
+        }
+
+
+        @media (max-width: 640px) {
+            /* Services Grid - Column stack */
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #hero h1 {
+                font-size: 2.5em;
+            }
+
+            #hero p {
+                font-size: 1.2em;
+            }
+            
+            /* Reduce padding */
+            section {
+                padding: 40px 20px;
+            }
+
+             /* Ensure table columns look better on mobile (though they will still be constrained by the narrow screen) */
+            .hours-table, .hours-table th, .hours-table td {
+                display: block;
+                width: 100%;
+                text-align: right;
+            }
+             .hours-table tr {
+                margin-bottom: 15px;
+                border: none;
+                padding: 10px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+             }
+             .hours-table td:before {
+                 /* Using the first cell content as a label for mobile display */
+                content: attr(data-label);
+                font-weight: bold;
+                text-align: left;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER & STICKY NAV -->
+    <header class="sticky-nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand">Hoffman Alterations and Embroidery</a>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="hero">
+        <h1>Hoffman Alterations and Embroidery</h1>
+        <p>Expert Alterations & Custom Embroidery in Modesto</p>
+        <a href="tel:+12092320374" class="call-button">Call (209) 232-0374</a>
+    </section>
+
+    <!-- 3. SERVICES SECTION -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            
+            <div class="service-card">
+                <h3>Garment Alterations</h3>
+                <p>From simple pant adjustments to complex resizes, we ensure your favorite garments fit you perfectly and look brand new.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Wedding Dress Tailoring</h3>
+                <p>Specializing in bridal fittings. We handle delicate materials and intricate designs to make your wedding day flawless.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Custom Embroidery</h3>
+                <p>Personalize everything! From corporate logos on polos to personalized monograms, we add bespoke touches with expert stitching.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Hemming & Repairs</h3>
+                <p>Don't replace it, repair it. We provide meticulous hemming services and skilled repairs for jeans, jackets, and delicate textiles.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. ABOUT SECTION -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a trusted local alterations shop known for transforming wedding dresses and bringing customer visions to life with skilled craftsmanship and a personal touch.</p>
+        <p style="margin-top: 20px;">Our passion is perfecting the fit so you can feel confident, beautiful, and perfectly tailored every time you walk through our doors.</p>
+    </section>
+
+    <!-- 5. CONTACT SECTION -->
+    <section id="contact">
+        <h2>Visit Us</h2>
+
+        <div class="contact-info">
+            <p>Call us today for an estimate or appointment:</p>
+            <a href="tel:+12092320374">(209) 232-0374</a>
+        </div>
+
+        <div class="address-block">
+            <strong>Visit our shop:</strong><br>
+            945 Coffee Rd Ste 1, Modesto, CA 95355
+        </div>
+
+
+        <h3>Our Hours</h3>
+        <table class="hours-table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Note: We use data attributes to help CSS structure for the media query -->
+                <tr>
+                    <td data-label="Day">Mon - Fri</td>
+                    <td data-label="Hours">9am - 6pm</td>
+                </tr>
+                 <tr>
+                    <td data-label="Day">Saturday</td>
+                    <td data-label="Hours">10am - 3pm</td>
+                </tr>
+                <tr>
+                    <td data-label="Day">Sunday</td>
+                    <td data-label="Hours">Closed</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer>
+        Hoffman Alterations and Embroidery © 2026
+    </footer>
+
+</body>
+</html>
